@@ -26,14 +26,14 @@ def filtrar_jogadores():
 
     # this list will contain the conditions for the SQL query
     lista =[
-        f"nome = '{nome}'" if nome != '' else None,
-        f"time = '{time}'" if time != '' else None,
-        f"selecao = '{selecao}'" if selecao != '' else None,
-        f"n_camisa = '{camisa}'" if camisa != '' else None,
-        f"salario    >= {min_salario}" if min_salario != '' else None,
-        f"salario <= {max_salario}" if max_salario != '' else None
+        f"nome = '{nome}'" if nome != '' and nome is not None else None,
+        f"time = '{time}'" if time != '' and time is not None else None,
+        f"selecao = '{selecao}'" if selecao != '' and selecao is not None else None,
+        f"n_camisa = '{camisa}'" if camisa != '' and camisa is not None else None,
+        f"salario >= {min_salario}" if min_salario != '' and min_salario is not None else None,
+        f"salario <= {max_salario}" if max_salario != '' and max_salario is not None else None
     ]
-
+    
     lista = [x for x in lista if x is not None]
     data = get_data(lista)
 

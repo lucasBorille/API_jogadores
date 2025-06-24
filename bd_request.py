@@ -14,8 +14,8 @@ def get_data(lista=None):
     cur = conn.cursor()
 
     sql = 'SELECT * FROM jogadores'
-    
-    if lista is not None:
+
+    if lista is not None and len(lista) > 0:
         sql += ' WHERE'
         for i in range(len(lista)):
             if i == 0:
@@ -25,6 +25,7 @@ def get_data(lista=None):
 
 
     try:
+        print(sql)
         cur.execute(sql)
         rows = cur.fetchall()
         cur.close()
